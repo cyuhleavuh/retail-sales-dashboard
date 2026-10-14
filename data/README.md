@@ -1,1 +1,1 @@
-   Download `online_retail_II.xlsx` from the Kaggle dataset (ozlemilgun/online-retail-dataset) and place it in this folder.
+Download `online_retail_II.xlsx` from https://www.kaggle.com/datasets/ozlemilgun/online-retail-dataset and place it in this folder.

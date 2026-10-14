@@ -23,6 +23,12 @@ An interactive Dash dashboard analysing two years of UK online gift-retailer tra
 
 ![Customers & Orders](images/customers.png)
 
+## Data
+Online Retail II, a UK online gift retailer's transactions from Dec 2009 to 9 Dec 2011.
+- Download: [Online Retail Dataset on Kaggle](https://www.kaggle.com/datasets/ozlemilgun/online-retail-dataset) (file: `online_retail_II.xlsx`)
+- Original source: Chen, D. (2012). *Online Retail II* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5CG6D. Licensed under CC BY 4.0.
+- The raw file isn't included in this repository. Place it in `data/` to run the notebooks.
+
 ## Data cleaning
 The cleaning notebook documents each decision, taking 1,067,371 raw rows down to 1,026,189:
 - removed 34,335 duplicate rows
@@ -47,7 +53,7 @@ The cleaning notebook documents each decision, taking 1,067,371 raw rows down to
 | `app.py` | Dash app |
 
 ## Run it locally
-1. Download `online_retail_II.xlsx` from [Kaggle](https://www.kaggle.com/datasets/ozlemilgun/online-retail-dataset) and put it in `data/`.
+1. Download `online_retail_II.xlsx` (see [Data](#data)) and put it in `data/`.
 2. Create and activate a virtual environment, then install the requirements:
 ```
    python -m venv .venv
