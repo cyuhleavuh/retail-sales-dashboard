@@ -1,16 +1,17 @@
 # Online Retail Sales Dashboard
 
-An interactive Dash dashboard analysing two years of UK online gift-retailer transactions (Online Retail II, Dec 2009 to 9 Dec 2011, £). It answers one business question: **what drives revenue, and where is it concentrated?** Built with Python, pandas, Plotly and Dash.
+An interactive Dash dashboard analysing two years of UK online gift-retailer transactions (Online Retail II, Dec 2009 to 9 Dec 2011, £).  It examines revenue by season, product, market and customer, and quantifies how concentrated sales are in each. Built with Python, pandas, Plotly and Dash.
 
 ![Business Overview](images/overview.png)
 
 ## Key findings
-- **Revenue and seasonality:** £19.36M from 39,513 orders. The typical order is £301 (median), against a mean of £490. Revenue builds from September into a November peak (£1.45M in 2011, £1.43M in 2010), so stock and staffing need to be in place by early autumn.
-- **Cancellations:** 12-17% of monthly orders are cancelled; the average fell from 15.0% in 2010 to 13.9% in 2011. This is a steady, material share of orders, worth tracking as a service-quality measure.
-- **Products:** about a fifth of the catalogue drives most sales. 1,053 products (21.5% of 4,895) account for 80% of revenue, and no single product exceeds 1.7%. Range reviews can focus on the long tail that contributes the remaining 20%.
-- **Markets:** the UK accounts for 85.3% of revenue. Ireland and the Netherlands lead international sales, so export growth is concentrated in a few markets.
-- **Customers:** 72.3% of the 5,852 known customers placed more than one order, and the top 1% (58 customers) generate 31.3% of known-customer revenue. Retaining a small group of repeat bulk buyers matters more than the size of the customer base.
-- **Missing customer IDs:** these orders are 7.4% of orders but 13.3% of revenue, so that revenue can't be tied to a customer. The typical no-ID order is smaller (median £184 vs. £303), but the average is higher (£881 vs. £459) because of a few very large invoices. Capturing IDs at checkout would make retention analysis more complete.
+**In short:** revenue is seasonal, spread across a broad catalogue, dominated by the UK, and reliant on a small group of repeat customers.
+
+- **When does revenue peak?** Revenue builds from September into a November peak (£1.45M in 2011, £1.43M in 2010), so stock and staffing need to be in place by early autumn. Total revenue is £19.36M from 39,513 orders; the typical order is £301 (median), against a mean of £490.
+- **Which products drive it?** About a fifth of the catalogue drives most sales: 1,053 products (21.5% of 4,895) account for 80% of revenue, and no single product exceeds 1.7%. Range reviews can focus on the long tail that contributes the remaining 20%.
+- **Which markets?** The UK accounts for 85.3% of revenue. Ireland and the Netherlands lead international sales, so export growth is concentrated in a few markets.
+- **Who are the customers?** 72.3% of the 5,852 known customers placed more than one order, and the top 1% (58 customers) generate 31.3% of known-customer revenue. Retaining a small group of repeat bulk buyers matters more than the size of the customer base.
+- **What is lost or unknown?** 12-17% of monthly orders are cancelled; the average fell from 15.0% in 2010 to 13.9% in 2011. Separately, orders with no Customer ID are 7.4% of orders but 13.3% of revenue, so that revenue can't be tied to a customer. The typical no-ID order is smaller (median £184 vs. £303), but the average is higher (£881 vs. £459) because of a few very large invoices. Capturing IDs at checkout would make retention analysis more complete.
 
 ## Dashboard pages
 **Business Overview** (shown above): headline KPIs, monthly revenue, a year-over-year comparison and the order cancellation rate.
