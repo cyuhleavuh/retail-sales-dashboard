@@ -1,10 +1,13 @@
-pandas
-openpyxl
-pyarrow
-dash
-dash-bootstrap-components
-plotly
+# Dashboard and data
+dash==4.4.1
+dash-bootstrap-components==2.0.4
+plotly==7.1.0
+pandas==3.0.6
+pyarrow==26.0.0
 
-# only needed in notebooks
-ipykernel
-nbformat
+# Reading the raw Excel file (cleaning notebook)
+openpyxl==3.1.5
+
+# Running the notebooks in VS Code or Jupyter
+ipykernel==7.4.0
+nbformat==5.11.1
