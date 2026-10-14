@@ -1,0 +1,17 @@
+# Virtual environment (rebuild with pip install -r requirements.txt)
+.venv/
+
+# Data files: the Excel file is downloaded from Kaggle,
+# the parquet files are produced by the Cleaning notebook
+data/*.xlsx
+data/*.parquet
+
+# Python and Jupyter cache folders
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db

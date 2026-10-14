@@ -1,0 +1,10 @@
+pandas
+openpyxl
+pyarrow
+dash
+dash-bootstrap-components
+plotly
+
+# only needed in notebooks
+ipykernel
+nbformat
