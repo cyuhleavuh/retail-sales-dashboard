@@ -28,7 +28,7 @@ The cleaning notebook documents each decision, taking 1,067,371 raw rows down to
 - removed 34,335 duplicate rows
 - removed 2,215 rows with junk descriptions
 - removed 4,627 rows with no description or a non-product code
-- - removed 5 line items from 3 orders (£284,623, about 1.4% of revenue): two orders reversed by a cancellation within minutes, and one outsized line re-issued on a corrected invoice
+- removed 5 line items from 3 orders (£284,623, about 1.4% of revenue): two orders reversed by a cancellation within minutes, and one outsized line re-issued on a corrected invoice
 - standardised country names
 - used a gross-sales convention, with cancelled invoices tracked separately
 
