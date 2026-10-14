@@ -44,6 +44,7 @@ def top_products_fig(data, metric):
     fig = px.bar(data, x=metric, y='Description', orientation='h', title=title, template=TEMPLATE)
     fig.update_yaxes(categoryorder='total ascending', title='Product Description')
     fig.update_xaxes(title=axis_title, tickformat=',.0f')
+    fig.update_layout(height=500)
     return fig
 
 
@@ -99,6 +100,7 @@ def cust_split_fig(split_df):
                  labels={'Customer_Type': 'Customer type'},
                  text=split_df['Percent'].round(1).astype(str) + '%', template=TEMPLATE)
     fig.update_yaxes(title='% of Total')
+    fig.update_layout(legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1, title_text=''))
     return fig
 
 

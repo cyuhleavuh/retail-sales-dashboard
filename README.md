@@ -1,25 +1,41 @@
 # Online Retail Sales Dashboard
 
-An interactive Dash dashboard that analyses two years of UK online gift-retailer transactions (Online Retail II, Dec 2009 to 9 Dec 2011, £): revenue trends, product and market performance, and customer behaviour.
+An interactive Dash dashboard analysing two years of UK online gift-retailer transactions (Online Retail II, Dec 2009 to 9 Dec 2011, £). It answers one business question: **what drives revenue, and where is it concentrated?** Built with Python, pandas, Plotly and Dash.
 
 ![Business Overview](images/overview.png)
 
 ## Key findings
-- **Revenue:** £19.36M from 39,513 orders. The typical order is £301 (median), against a mean of £490. November is the peak month in both years (£1.45M in 2011, £1.43M in 2010); Dec 2011 is partial because the data ends on 9 Dec.
-- **Cancellations:** 12-17% of monthly orders are cancelled; the average fell from 15.0% in 2010 to 13.9% in 2011.
-- **Products:** 1,053 products (21.5% of the 4,895-product catalogue) account for 80% of revenue. No single product exceeds 1.7%.
-- **Markets:** the UK accounts for 85.3% of revenue. Ireland and the Netherlands lead international sales.
-- **Customers:** 72.3% of the 5,852 known customers placed more than one order, and the top 1% generate 31.3% of known-customer revenue.
-- **Missing customer IDs:** these orders are 7.4% of orders but 13.3% of revenue. The typical one is smaller (median £184 vs. £303), but the average is higher because of a few very large invoices.
+- **Revenue and seasonality:** £19.36M from 39,513 orders. The typical order is £301 (median), against a mean of £490. Revenue builds from September into a November peak (£1.45M in 2011, £1.43M in 2010), so stock and staffing need to be in place by early autumn.
+- **Cancellations:** 12-17% of monthly orders are cancelled; the average fell from 15.0% in 2010 to 13.9% in 2011. This is a steady, material share of orders, worth tracking as a service-quality measure.
+- **Products:** about a fifth of the catalogue drives most sales. 1,053 products (21.5% of 4,895) account for 80% of revenue, and no single product exceeds 1.7%. Range reviews can focus on the long tail that contributes the remaining 20%.
+- **Markets:** the UK accounts for 85.3% of revenue. Ireland and the Netherlands lead international sales, so export growth is concentrated in a few markets.
+- **Customers:** 72.3% of the 5,852 known customers placed more than one order, and the top 1% (58 customers) generate 31.3% of known-customer revenue. Retaining a small group of repeat bulk buyers matters more than the size of the customer base.
+- **Missing customer IDs:** these orders are 7.4% of orders but 13.3% of revenue, so that revenue can't be tied to a customer. The typical no-ID order is smaller (median £184 vs. £303), but the average is higher (£881 vs. £459) because of a few very large invoices. Capturing IDs at checkout would make retention analysis more complete.
+
+## Dashboard pages
+**Business Overview** (shown above): headline KPIs, monthly revenue, a year-over-year comparison and the order cancellation rate.
+
+**Products & Markets:** top 10 products by revenue or units sold (toggle), a Pareto chart of revenue concentration across the catalogue, and international revenue by country.
+
+![Products & Markets](images/products.png)
+
+**Customers & Orders:** the top customers, repeat-purchase behaviour, order-size distribution, and a comparison of orders with and without a Customer ID.
+
+![Customers & Orders](images/customers.png)
 
 ## Data cleaning
 The cleaning notebook documents each decision, taking 1,067,371 raw rows down to 1,026,189:
 - removed 34,335 duplicate rows
-- removed 2,215 non-sale rows
+- removed 2,215 rows with junk descriptions
 - removed 4,627 rows with no description or a non-product code
-- removed 5 line items from 3 orders identified as entry errors (£284,623, about 1.4% of revenue)
+- - removed 5 line items from 3 orders (£284,623, about 1.4% of revenue): two orders reversed by a cancellation within minutes, and one outsized line re-issued on a corrected invoice
 - standardised country names
 - used a gross-sales convention, with cancelled invoices tracked separately
+
+## Limitations
+- The data covers Dec 2009 to 9 Dec 2011, and Dec 2011 is partial.
+- Figures are gross sales. The source has no field linking a cancellation to its original sale, so cancellations are tracked separately rather than netted out.
+- Customer-level findings cover known customers only (86.7% of revenue). The source does not say why some orders have no Customer ID.
 
 ## Project structure
 | File | Purpose |

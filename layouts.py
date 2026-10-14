@@ -109,17 +109,16 @@ def customers_layout(c):
 
         dbc.Row([
             dbc.Col(chart_block(
-                cust_split_fig(c['split_df']),
-                'Orders with no Customer ID are 7.4% of orders but 13.3% of revenue. The source does not '
-                'say why the ID is missing, so the group may mix guest checkouts, other sales channels and '
-                'batch invoices.'), md=5),
-            dbc.Col(html.Div([
-                html.H6('Typical order: No Customer ID vs. known customers', className='mt-3'),
-                simple_table(c['comparison']),
-                html.P('The typical no-ID order is smaller (median £184 vs. £303), but the average is higher '
-                       '(£881 vs. £459) because of a small number of very large bulk invoices. Medians '
-                       'describe the typical order.', className='text-muted small'),
-            ]), md=7),
+                top_customers_fig(c['top10']),
+                f"The top 10 customers account for {c['top10_known_pct']:.1f}% of known-customer revenue "
+                f"({c['top10_total_pct']:.1f}% of total revenue), the top 1% for {c['top1pct_share']:.1f}%. "
+                f"It takes {c['n_to_80']:,} customers ({c['n_to_80_pct']:.1f}% of the base) to reach 80%. "
+                "Most of the top ten are repeat bulk buyers, so retaining them is important."), md=6),
+            dbc.Col(chart_block(
+                order_buckets_fig(c['order_buckets']),
+                f"{c['repeat_rate']:.1f}% of known customers placed more than one order (median "
+                f"{c['median_orders']:.0f}, mean {c['mean_orders']:.1f}). Customers who first ordered late in "
+                "2011 had little time to reorder, so the true repeat rate is likely slightly higher."), md=6),
         ], className='g-3'),
 
         dbc.Row([
@@ -129,16 +128,17 @@ def customers_layout(c):
                 'bulk orders. The chart is capped at 800 units and leaves out the largest 4.9% of orders '
                 '(up to 87,167 units).'), md=6),
             dbc.Col(chart_block(
-                order_buckets_fig(c['order_buckets']),
-                f"{c['repeat_rate']:.1f}% of known customers placed more than one order (median "
-                f"{c['median_orders']:.0f}, mean {c['mean_orders']:.1f}). Customers who first ordered late in "
-                "2011 had little time to reorder, so the true repeat rate is likely slightly higher."), md=6),
+                cust_split_fig(c['split_df']),
+                'Orders with no Customer ID are 7.4% of orders but 13.3% of revenue. The source does not '
+                'say why the ID is missing, so the group may mix guest checkouts, other sales channels and '
+                'batch invoices. The table below compares a typical order in each group.'), md=6),
         ], className='g-3 mt-2'),
 
-        dbc.Row(dbc.Col(chart_block(
-            top_customers_fig(c['top10']),
-            f"The top 10 customers account for {c['top10_known_pct']:.1f}% of known-customer revenue "
-            f"({c['top10_total_pct']:.1f}% of total revenue), the top 1% for {c['top1pct_share']:.1f}%. "
-            f"It takes {c['n_to_80']:,} customers ({c['n_to_80_pct']:.1f}% of the base) to reach 80%. "
-            "Most of the top ten are repeat bulk buyers, so retaining them is important.")), className='mt-3'),
+        dbc.Row(dbc.Col(html.Div([
+            html.H6('Typical order: No Customer ID vs. known customers'),
+            simple_table(c['comparison']),
+            html.P('The typical no-ID order is smaller (median £184 vs. £303), but the average is higher '
+                   '(£881 vs. £459) because of a small number of very large bulk invoices. Medians '
+                   'describe the typical order.', className='text-muted small'),
+        ]), md=8), className='mt-3'),
     ])    
